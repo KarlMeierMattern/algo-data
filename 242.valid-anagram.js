@@ -44,7 +44,7 @@ const validAnagram = (s, t) => {
     countT[char] = (countT[char] || 0) + 1;
   }
 
-  // Step 3: Compare the frequency maps
+  // Step 3: Compare the frequency maps.
   // Comparing the frequency maps is O(1) because the number of unique keys is at most 26 (constant for lowercase English letters).
   for (let key in countS) {
     if (countS[key] !== countT[key]) {
