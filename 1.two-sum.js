@@ -48,6 +48,7 @@ function twoSum(nums, target) {
   return [];
 }
 
+// My version
 const twoSumMyVersion = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     const complement = target - nums[i];
