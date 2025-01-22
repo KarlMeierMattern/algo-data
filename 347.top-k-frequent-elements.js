@@ -23,7 +23,7 @@
 const topK = (intArray, k) => {
   // create a frequency map
   const mapObject = {};
-  for (let int of intArray) {
+  for (const int of intArray) {
     mapObject[int] = (mapObject[int] || 0) + 1;
   }
 
@@ -63,4 +63,4 @@ const topKSolution2 = (intArray, k) => {
 const intTest = [1, 2, 2, 3, 3, 3, 3, 4];
 k = 2;
 
-console.log(topKSolution2(intTest, k));
+console.log(topK(intTest, k));

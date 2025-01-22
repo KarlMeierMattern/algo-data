@@ -3,7 +3,7 @@ const mockRequest = async (task, delay) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(`Task ${task} completed after ${delay}ms`);
-      resolve(`Result of task ${task}`);
+      resolve(`Result of task ${task}`); // When resolve is called with a value the Promise is fulfilled. The result of the Promise is the value passed to resolve.
     }, delay);
   });
 };
@@ -25,6 +25,13 @@ const tasks = [
   { id: 3, delay: 800 },
 ];
 
-processQueueSequentially(tasks).then((results) => {
-  console.log("All tasks completed:", results);
-});
+// processQueueSequentially(tasks).then((results) => {
+//   console.log("All tasks completed:", results);
+// });
+
+try {
+  const taskResponse = await processQueueSequentially(tasks);
+  console.log("All tasks completed:", taskResponse);
+} catch (error) {
+  console.log(`The following error occurred: ${error}`);
+}
