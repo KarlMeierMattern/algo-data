@@ -1,9 +1,6 @@
 // Map reduce
 const nums = [1, 2, 3, 4, 5];
-// Using map to square each number, then reduce to sum them
-const result = nums
-  .map((num) => num * num) // Squares each number
-  .reduce((acc, num) => acc + num, 0); // Sums all the squared numbers
+const result = nums.map((num) => num * num).reduce((acc, num) => acc + num, 0); // Sums all the squared numbers
 console.log(result); // Output: 55 (1^2 + 2^2 + 3^2 + 4^2 + 5^2)
 
 // 1. Flattening an Array
@@ -49,13 +46,13 @@ console.log(object); // Output: { a: 1, b: 2, c: 3 }
 
 // 5. Finding the Maximum/Minimum Value
 const numbers = [10, 20, 4, 100, 50];
-const max = numbers.reduce((acc, num) => (num > acc ? num : acc), numbers[0]);
+const max = numbers.reduce((acc, num) => (num > acc ? num : acc), numbers[0]); // acc is the accumulator that holds the current maximum value found so far.
 console.log(max); // Output: 100
 
 // 6. Running Total / Cumulative Sum
 const number = [1, 2, 3, 4, 5];
 const cumulativeSum = number.reduce((acc, num) => {
-  acc.push((acc[acc.length - 1] || 0) + num);
+  acc.push((acc[acc.length - 1] || 0) + num); // acc[acc.length - 1]: This expression accesses the last element of the acc array. If acc is empty (which it is on the first iteration), this will be undefined.
   return acc;
 }, []);
 console.log(cumulativeSum); // Output: [1, 3, 6, 10, 15]

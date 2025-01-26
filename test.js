@@ -1,16 +1,8 @@
-const longestString = (string) => {
-  let result = [];
-  let maxLength = 0;
+const fruits = ["apple", "banana", "orange", "banana", "apple"];
 
-  for (let str of string) {
-    if (result.includes(str)) {
-      while (result.includes(str)) {
-        result.shift(str);
-      }
-    }
+const groupFruits = fruits.reduce((acc, curr) => {
+  acc[curr] = (acc[curr] || 0) + 1;
+  return acc;
+}, {});
 
-    result.push(str);
-    maxLength = Math.max(maxLength, result.length);
-  }
-  return maxLength;
-};
+console.log(groupFruits);
