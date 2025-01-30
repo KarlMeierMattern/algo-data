@@ -10,6 +10,7 @@ console.log(str.length); // Output: 5
 
 // 2. indexOf()
 // Returns the index of the first occurrence of a specified value in a string, or -1 if not found.
+// Add optional second argument for the index to start the search at
 const str = "Hello, world!";
 console.log(str.indexOf("world")); // Output: 7
 
