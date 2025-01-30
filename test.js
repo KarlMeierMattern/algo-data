@@ -1,8 +1,4 @@
-const fruits = ["apple", "banana", "orange", "banana", "apple"];
+const testString = "apple";
 
-const groupFruits = fruits.reduce((acc, curr) => {
-  acc[curr] = (acc[curr] || 0) + 1;
-  return acc;
-}, {});
-
-console.log(groupFruits);
+// console.log(testString.indexOf("p", 1));
+console.log(parseInt(testString.substring(0, 2)));

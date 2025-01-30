@@ -28,7 +28,7 @@ const topK = (intArray, k) => {
   }
 
   // array of [key, value] pairs
-  const frequencyMap = Object.entries(mapObject);
+  const frequencyMap = Object.entries(mapObject); // creates an array
   frequencyMap.sort((a, b) => b[1] - a[1]);
 
   // return top k most frequency elemse
@@ -53,7 +53,7 @@ const topKSolution2 = (intArray, k) => {
   );
 
   // Step 3: Extract the top k keys
-  const result = sortedEntries.slice(0, k).map(([key]) => key);
+  const result = sortedEntries.slice(0, k).map(([key]) => key); // destructures the first element of each array
 
   return result;
 };
