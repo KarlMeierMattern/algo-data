@@ -1,4 +1,11 @@
-const testString = "apple";
+const readline = require("readline");
 
-// console.log(testString.indexOf("p", 1));
-console.log(parseInt(testString.substring(0, 2)));
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question("Enter your name: ", (name) => {
+  console.log(`Hello, ${name}!`);
+  rl.close();
+});
