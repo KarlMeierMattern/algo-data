@@ -1,11 +1,30 @@
-const readline = require("readline");
+const mergeSort = (array) => {
+  if (array.length <= 1) return array;
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+  let mid = Math.floor(array.length / 2);
+  let left = mergeSort(array.slice(0, mid));
+  let right = mergeSort(array.slice(mid));
 
-rl.question("Enter your name: ", (name) => {
-  console.log(`Hello, ${name}!`);
-  rl.close();
-});
+  return merge(left, right);
+};
+
+const merge = (left, right) => {
+  let newArray = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      newArray.push(left[i]);
+      i++;
+    } else {
+      newArray.push(right[j]);
+      j++;
+    }
+  }
+  return [...newArray, ...left.slice(i), ...right.slice(j)];
+};
+
+// Example usage
+const arr = [64, 25, 12, 22, 11];
+console.log("Sorted array:", mergeSort(arr));

@@ -33,3 +33,6 @@ let found = arr.find((x) => x > 1); // found is 2
 
 // 10. includes(): Determines whether an array includes a certain value among its entries, returning true or false.
 let hasTwo = arr.includes(2); // hasTwo is true
+
+// 11. slice(): Returns a shallow copy of a portion of an array or string into a new array or string.
+let slicedArr = arr.slice(0, 2); // slicedArr is [1, 2]
