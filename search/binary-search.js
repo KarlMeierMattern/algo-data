@@ -1,3 +1,5 @@
+// For binary search to work the elements need to first be sorted
+
 // Time Complexity: O(log n)
 // 	•	The array is repeatedly halved until the target is found or the interval is empty.
 // 	•	At each step, the search space reduces by half, leading to O(\log n) comparisons.
