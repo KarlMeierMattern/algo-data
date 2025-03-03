@@ -63,3 +63,8 @@ console.log(str.startsWith("Hello")); // Output: true
 // Checks if a string ends with a specified substring.
 const str = "Hello, world!";
 console.log(str.endsWith("world!")); // Output: true
+
+// 13. join()
+// You can split a string on every occurrence of another string with split and join it again with join:
+let words = ["Hello", "world!"];
+console.log(words.join(", ")); // → Hello, world

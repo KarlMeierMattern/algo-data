@@ -59,3 +59,13 @@ console.log(Math.max(9, ...numbers, 2)); // → 7
 // 16. Square bracket array notation similarly allows the triple-dot operator to spread another array into the new array.
 let words = ["never", "fully"];
 console.log(["will", ...words, "understand"]); // → ["will", "never", "fully", "understand"]
+
+// 17. .some() checks if at least one element in the array meets the condition.
+const numbers = [1, 2, 3, 4, 5];
+const hasEven = numbers.some((num) => num % 2 === 0);
+console.log(hasEven); // true (since 2, 4 are even)
+
+// 18. .every() checks if every element in the array meets the condition.
+const numbers = [1, 2, 3, 4, 5];
+const hasEven = !numbers.every((num) => num % 2 !== 0);
+console.log(hasEven); // true (since at least one even number exists)
