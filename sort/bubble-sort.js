@@ -10,8 +10,8 @@ const bubbleSort = (array) => {
 };
 
 const array = [6, 4, 9, 7, 3, 6];
-const sortedArray = bubbleSort(array); // Call the function and store the result
-console.log(sortedArray); // Log the sorted array to the terminal
+const sortedArray = bubbleSort(array);
+console.log(sortedArray);
 
 // Time complexity of O(n²) in the worst and average cases.
 // It repeatedly compares and swaps adjacent elements if they are in the wrong order.

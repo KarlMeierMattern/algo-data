@@ -12,32 +12,32 @@ const arrayToList = (arr) => {
   let list = null;
 
   for (let i = arr.length - 1; i >= 0; i--) {
-    list = { value: arr[i], rest: list };
+    list = { value: arr[i], next: list };
   }
   return list;
 };
 
+const testArr = [1, 2, 4];
+const list = arrayToList(testArr);
+console.log(list);
+
 const listToArray = (list) => {
   const arr = [];
-  for (let node = list; node !== null; node = node.rest) {
+  for (let node = list; node !== null; node = node.next) {
     arr.push(node.value);
   }
   return arr;
 };
 
-const testArr = [1, 2, 3];
-const list = arrayToList(testArr);
-// console.log(list);
-
 const testList = {
   value: 1,
-  rest: {
+  next: {
     value: 2,
-    rest: {
+    next: {
       value: 3,
-      rest: null,
+      next: null,
     },
   },
 };
 const newArr = listToArray(testList);
-console.log(newArr);
+// console.log(newArr);
