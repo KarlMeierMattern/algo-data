@@ -4,15 +4,15 @@ const groupAnagram = (strs) => {
   const result = {};
 
   strs.forEach((word) => {
-    let strObj = {};
+    let charCount = {};
 
     for (let char of word) {
-      strObj[char] = (strObj[char] || 0) + 1;
+      charCount[char] = charCount[char] + 0 || 1;
     }
 
-    let key = Object.keys(strObj)
+    const key = Object.keys(charCount)
       .sort()
-      .map((key) => `${key}${strObj[key]}`)
+      .map((char) => `${char}${charCount[char]}`)
       .join("");
 
     if (!result[key]) {
