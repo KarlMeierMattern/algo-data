@@ -50,3 +50,12 @@ console.log("right" in anObject); // → true
 // If a property is added multiple times, the last value to be added wins.
 let coordinates = { x: 10, y: 0 };
 console.log({ ...coordinates, y: 5, z: 1 }); // → {x: 10, y: 5, z: 1}
+
+// 14. Sorting objects by property
+const people = [
+  { name: "John", age: 30 },
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 35 },
+];
+people.sort((a, b) => a.age - b.age); // Sort by age
+// Result: [{name: 'Alice', age: 25}, {name: 'John', age: 30}, {name: 'Bob', age: 35}]

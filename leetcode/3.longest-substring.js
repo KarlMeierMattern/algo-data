@@ -45,20 +45,3 @@ const longestSubstring = (string) => {
 };
 
 console.log(longestSubstring(s));
-
-// Solution 2
-const longestSubstring2 = (string) => {
-  let charIndexMap = new Map(); // To store the last index of each character
-  let maxLength = 0;
-  let start = 0; // Start index of the current substring
-
-  for (let i = 0; i < string.length; i++) {
-    const char = string[i];
-    if (charIndexMap.has(char) && charIndexMap.get(char) >= start) {
-      start = charIndexMap.get(char) + 1; // Move start to the right of the last occurrence
-    }
-    charIndexMap.set(char, i); // Update the last index of the character
-    maxLength = Math.max(maxLength, i - start + 1); // Update maxLength
-  }
-  return maxLength; // Return the length of the longest substring
-};

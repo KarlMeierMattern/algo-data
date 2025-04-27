@@ -69,3 +69,12 @@ console.log(hasEven); // true (since 2, 4 are even)
 const numbers = [1, 2, 3, 4, 5];
 const hasEven = !numbers.every((num) => num % 2 !== 0);
 console.log(hasEven); // true (since at least one even number exists)
+
+// 19. Basic number sorting
+const numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+numbers.sort(); // [1, 1, 2, 3, 4, 5, 5, 6, 9]
+
+// Custom sorting with compare function
+const numbers2 = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+numbers2.sort((a, b) => a - b); // Ascending order: [1, 1, 2, 3, 4, 5, 5, 6, 9]
+numbers2.sort((a, b) => b - a); // Descending order: [9, 6, 5, 5, 4, 3, 2, 1, 1]

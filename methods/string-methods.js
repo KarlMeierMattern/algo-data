@@ -68,3 +68,7 @@ console.log(str.endsWith("world!")); // Output: true
 // You can split a string on every occurrence of another string with split and join it again with join:
 let words = ["Hello", "world!"];
 console.log(words.join(", ")); // → Hello, world
+
+// 14. String sorting
+const fruits = ["banana", "apple", "orange", "grape"];
+fruits.sort(); // ['apple', 'banana', 'grape', 'orange']
