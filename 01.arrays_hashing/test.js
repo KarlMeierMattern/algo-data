@@ -1,16 +1,22 @@
-function simpleHash(key) {
-  let hash = 0;
-  for (let i = 0; i < key.length; i++) {
-    hash = hash + 1;
+const nums = [0, 3, 2, 5, 4, 6, 1, 1];
+
+const longestConsecutiveSubString = (nums) => {
+  const numSet = new Set(nums);
+  let longestCount = 1;
+  for (let i = 0; i < nums.length; i++) {
+    if (!numSet.has(nums[i] - 1)) {
+      let currentNum = nums[i];
+      let currentCount = 1;
+
+      while (numSet.has(currentNum + 1)) {
+        currentNum++;
+        currentCount++;
+      }
+
+      longestCount = Math.max(longestCount, currentCount);
+    }
   }
-  return hash;
-}
+  return longestCount;
+};
 
-// Using the hash function in a hash map
-const hashMap = {};
-const key = "apple";
-const value = "fruit";
-
-hashMap[simpleHash(key)] = value; // Storing using hash of the key
-
-console.log(hashMap); // Access using hash
+console.log(longestConsecutiveSubString(nums));
