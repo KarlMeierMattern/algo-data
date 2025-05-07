@@ -1,10 +1,9 @@
-const string = "cat";
+const arr = [1, 2, 3, 4, 5];
 
-const testIndex = (string) => {
-  if (string.includes("a")) {
-    return true;
-  }
-  return false;
-};
+const map = new Map();
 
-console.log(testIndex(string));
+for (let i = 0; i < arr.length; i++) {
+  map.set(arr[i], i);
+}
+
+console.log(map.get(4));
