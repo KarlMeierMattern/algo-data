@@ -19,7 +19,7 @@
 // 0 <= strs[i].length < 200
 // strs[i] contains only UTF-8 characters.
 
-const encodeString = (stringList, encodeChar) => {
+const encodeString = (stringList) => {
   return stringList.map((str) => str.length + "#" + str).join("");
 };
 
@@ -44,3 +44,4 @@ const decoded = decodeString(encoded);
 
 console.log("Encoded:", encoded);
 console.log("Decoded:", decoded);
+

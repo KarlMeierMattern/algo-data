@@ -29,9 +29,6 @@
 // 3 <= nums.length <= 1000
 // -10^5 <= nums[i] <= 10^5
 
-// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] where nums[i] + nums[j] + nums[k] == 0, and the indices i, j and k are all distinct.
-// The output should not contain any duplicate triplets. You may return the output and the triplets in any order.
-
 const threeSum = (nums) => {
   if (nums.length < 3) return [];
   const sortedNums = nums.sort((a, b) => a - b);
@@ -60,8 +57,7 @@ const threeSum = (nums) => {
       }
     }
   }
-
   return triplets;
 };
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+console.log(threeSum([-5, 4, 1, 0, 3, 2, -3]));
