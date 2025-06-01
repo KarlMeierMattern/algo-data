@@ -1,6 +1,8 @@
+// npx ts-node factory-pattern.ts
+
 // Factory Pattern
-// Used to create new objects.
-// Returns a new object without the use of the new keyword
+// Useful when we have to create multiple smaller objects that share the same properties
+
 const newUserFactory = (
   firstName: string,
   lastName: string,
@@ -17,7 +19,7 @@ const newUser2 = newUserFactory("Jane", "Smith", "jane.smith@example.com");
 console.log(newUser2.getDetails());
 
 // Using a class
-// In many cases it may be more memory efficient to create new instances instead of new objects each time.
+// In many cases it may be more memory efficient to create new instances instead of new objects each time
 class NewUser {
   private firstName: string;
   private lastName: string;
@@ -36,4 +38,4 @@ class NewUser {
 
 const newUser = new NewUser("John", "Doe", "john.doe@example.com");
 
-console.log(newUser.getDetails());
+// console.log(newUser.getDetails());
