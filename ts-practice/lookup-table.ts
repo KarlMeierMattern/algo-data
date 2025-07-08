@@ -32,7 +32,7 @@ const lookupTable = (
   return countryObj;
 };
 
-console.log(lookupTable(countries));
+// console.log(lookupTable(countries));
 
 const lookupCountry = (
   countries: Array<CountriesType>
@@ -45,4 +45,4 @@ const lookupCountry = (
     {}
   );
 
-// console.log(lookupCountry(countries));
+console.log(lookupCountry(countries));
