@@ -29,3 +29,11 @@ const countTags = (articles: Array<Tags>): Record<string, number> => {
 };
 
 console.log(countTags(articles));
+
+// This is one of the most transferable patterns in web dev:
+// Works for:
+// 	•	Tags
+// 	•	Votes
+// 	•	Product counts
+// 	•	Session logs
+// 	•	Click events
