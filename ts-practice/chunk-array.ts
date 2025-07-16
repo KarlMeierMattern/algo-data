@@ -38,7 +38,7 @@ const chunkArray2 = (array: string[], size: number): string[][] => {
   return result;
 };
 
-console.log(chunkArray2(data, size));
+// console.log(chunkArray2(data, size));
 
 // You’ll use this for:
 // Paginating results
