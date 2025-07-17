@@ -1,8 +1,5 @@
-const emails = [
-  "user1@example.com",
-  "user2@example.com",
-  "user1@example.com",
-  "user3@example.com",
-];
+const nums = [2, 4, 6, 8, 9];
 
-console.log(emails.some((item, index) => emails.indexOf(item) !== index));
+for (let i = 0; i <= nums.length - 1; i++) {
+  console.log(nums[i]);
+}
