@@ -1,22 +1,36 @@
-const newMap = new Map();
-const newArr = [1, 2, 3, 2];
-for (let i = 0; i < newArr.length; i++) {
-  newMap.set(i, newArr[i]);
-}
+const people = [
+  { name: "Alice", age: 30 },
+  { name: "Bob", age: 25 },
+  { name: "Charlie", age: 30 },
+  { name: "David", age: 25 },
+];
 
-// console.log(newMap);
+// Group by age, but instead of returning names, return the full person objects:
 
-const twoSum = (array: number[], target: number): number[] => {
-  const map = new Map();
-  for (let i = 0; i < array.length; i++) {
-    let remainder = target - array[i];
+// {
+//   25: [
+//     { name: "Bob", age: 25 },
+//     { name: "David", age: 25 },
+//   ],
+//   30: [
+//     { name: "Alice", age: 30 },
+//     { name: "Charlie", age: 30 },
+//   ]
+// }
 
-    if (map.has(remainder)) {
-      return [map.get(remainder), i];
-    }
-    map.set(array[i], i);
-  }
-  return [];
+const groupAge = (
+  people: { name: string; age: number }[]
+): Record<number, { name: string; age: number }[]> => {
+  return people.reduce(
+    (
+      acc: Record<number, { name: string; age: number }[]>,
+      curr: { name: string; age: number }
+    ) => {
+      const { age } = curr;
+      if (!acc[age]) acc[age] = [];
+      acc[age].push(curr);
+      return acc;
+    },
+    {}
+  );
 };
-
-console.log(twoSum([2, 5, 7, 8], 9));
