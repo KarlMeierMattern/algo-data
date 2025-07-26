@@ -1,36 +1,22 @@
-const people = [
-  { name: "Alice", age: 30 },
-  { name: "Bob", age: 25 },
-  { name: "Charlie", age: 30 },
-  { name: "David", age: 25 },
-];
+const sameFrequency = (arr1: number[], arr2: number[]): boolean => {
+  if (arr1.length !== arr2.length) return false;
 
-// Group by age, but instead of returning names, return the full person objects:
+  const map1 = new Map<number, number>();
+  const map2 = new Map<number, number>();
 
-// {
-//   25: [
-//     { name: "Bob", age: 25 },
-//     { name: "David", age: 25 },
-//   ],
-//   30: [
-//     { name: "Alice", age: 30 },
-//     { name: "Charlie", age: 30 },
-//   ]
-// }
+  for (const num of arr1) {
+    map1.set(num, (map1.get(num) || 0) + 1);
+  }
 
-const groupAge = (
-  people: { name: string; age: number }[]
-): Record<number, { name: string; age: number }[]> => {
-  return people.reduce(
-    (
-      acc: Record<number, { name: string; age: number }[]>,
-      curr: { name: string; age: number }
-    ) => {
-      const { age } = curr;
-      if (!acc[age]) acc[age] = [];
-      acc[age].push(curr);
-      return acc;
-    },
-    {}
-  );
+  for (const num of arr2) {
+    map2.set(num, (map2.get(num) || 0) + 1);
+  }
+
+  for (const key in map1) {
+    if (map1[key] !== map2[key]) return false;
+  }
+
+  return true;
 };
+
+console.log(sameFrequency([2, 4, 6]));
