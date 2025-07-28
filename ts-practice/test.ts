@@ -19,4 +19,4 @@ const sameFrequency = (arr1: number[], arr2: number[]): boolean => {
   return true;
 };
 
-console.log(sameFrequency([2, 4, 6]));
+console.log(sameFrequency([2, 4, 6], ));
