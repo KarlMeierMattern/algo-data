@@ -72,3 +72,22 @@ console.log(words.join(", ")); // → Hello, world
 // 14. String sorting
 const fruits = ["banana", "apple", "orange", "grape"];
 fruits.sort(); // ['apple', 'banana', 'grape', 'orange']
+
+// 15. Sort by last char
+const sortLastChar = (arr: string[]): string[] => {
+  return arr.sort(
+    (a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1)
+  );
+};
+
+console.log(sortLastChar(["apple", "banana", "cherry"]));
+
+// 16. Append letter to string
+const word = "Hello";
+word += "!";
+console.log(word); // → Hello!
+
+// 17. Remove last letter from string
+const word = "Hello";
+word = word.slice(0, -1);
+console.log(word); // → Hell
