@@ -17,7 +17,7 @@ const subsequence = (target: string, source: string): boolean => {
 
 // console.log(subsequence("abc", "ahbgjc"));
 
-// solution 2 (considers order)
+// solution 2 (consider order)
 const isSubsequence = (target: string, source: string): boolean => {
   let i = 0;
 
