@@ -4,6 +4,8 @@
 // validAnagram("hello", "bello"); // false
 
 // using map
+// time complexity: O(n+m)
+// space complexity: O(n+m)
 const validAnagram = (str1: string, str2: string): boolean => {
   const normalise = (string: string) =>
     string
