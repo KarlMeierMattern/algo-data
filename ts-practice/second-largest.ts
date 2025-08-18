@@ -40,8 +40,7 @@ const secondLargest2 = (arr: number[]): number | null => {
     if (num > largest) {
       secondLargest = largest;
       largest = num;
-    } else if (num > secondLargest && num !== largest) {
-      // account for duplicates
+    } else if (num > secondLargest && num !== largest) { // account for duplicates
       secondLargest = num;
     }
   }
