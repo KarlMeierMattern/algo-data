@@ -37,7 +37,7 @@ const testList = {
     },
   },
 };
-// const newArr = listToArray(testList);
-// console.log(newArr);
-const testArr2 = [1, 2, 3];
-console.log(arrayToList(testArr));
+const newArr = listToArray(testList);
+console.log(newArr);
+// const testArr2 = [1, 2, 3];
+// console.log(arrayToList(testArr));
