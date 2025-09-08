@@ -1,3 +1,5 @@
-const arr = [1, 3, 12, 0, 0];
+const str = "hello";
 
-console.log(arr[0]);
+const strSlice = str.slice(1);
+
+console.log(strSlice);
