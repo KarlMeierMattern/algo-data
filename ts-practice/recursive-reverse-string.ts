@@ -13,6 +13,14 @@ const reverseString = (str: string): string => {
 
 console.log(reverseString("hello"));
 
+// How it works
+// "hello" → "o" + reverseString("hell")
+// "hell" → "l" + reverseString("hel")
+// "hel" → "l" + reverseString("he")
+// "he" → "e" + reverseString("h")
+// "h" → "h" (base case)
+// Combine: "o" + "l" + "l" + "e" + "h"
+
 // without recursion
 const reverseString2 = (str: string): string => {
   let splitStr = str.split("");
