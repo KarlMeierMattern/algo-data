@@ -36,23 +36,43 @@ const checkAnagram = (word1: string, word2: string): boolean => {
 
 console.log(checkAnagram("listen", "silent"));
 
-// solution 2
-// const formatWords = (word: string): Array<string> => {
-//     return word
-//       .replace(/[^a-z]\gi/, "")
-//       .toLowerCase()
-//       .split("")
-//       .sort();
-//   };
+const checkAnagram = (str1: string, str2: string): boolean => {
+  if (str1.length !== str2.length) return false;
 
-//   const checkAnagram = (word1: string, word2: string): boolean => {
-//     const formattedWord1 = formatWords(word1);
-//     const formattedWord2 = formatWords(word2);
+  const map1 = {};
+  const map2 = {};
 
-//     return (
-//       formattedWord1.length === formattedWord2.length &&
-//       formattedWord1.every((letter, i) => letter === formattedWord2[i])
-//     );
-//   };
+  for (const letter of str1) {
+    map1[letter] = (map1[letter] || 0) + 1;
+  }
 
-//   console.log(checkAnagram("listen", "silent"));
+  for (const letter of str2) {
+    map2[letter] = (map2[letter] || 0) + 1;
+  }
+
+  for (const key in map1) {
+    if (map1[key] !== map2[key]) return false;
+  }
+
+  return true;
+};
+
+const checkAnagram = (str1: string, str2: string): boolean => {
+  if (str1.length !== str2.length) return false;
+
+  const map: Record<string, number> = {};
+
+  for (const letter of str1) {
+    map[letter] = (map[letter] || 0) + 1;
+  }
+
+  for (const letter of str2) {
+    if (!map[letter]) return false; // covers the case where letter is not in map and where the count is 0 but we encounter that letter again
+    map[letter]--; // decrementing the count ensures exact matching
+  }
+
+  return true;
+};
+
+// O(n) time complexity (two passes over strings: one build, one check).
+// O(k) space complexity, where k = unique characters in the frequency map.
