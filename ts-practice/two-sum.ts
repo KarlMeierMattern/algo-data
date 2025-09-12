@@ -15,3 +15,19 @@ const twoSum = (array: Array<number>, target: number): boolean => {
 };
 
 console.log(twoSum([2, 7, 11, 15], 9));
+
+const hasPairWithSum = (arr: number[], target: number): boolean => {
+  const set = new Set<number>();
+
+  for (const num of arr) {
+    let remainder = target - num;
+    if (set.has(remainder)) {
+      return true;
+    } else {
+      set.add(num);
+    }
+  }
+  return false;
+};
+
+console.log(hasPairWithSum([1, 2, 3, 5], 9));
