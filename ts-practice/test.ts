@@ -1,22 +1,49 @@
-// You’re given an array of numbers and a target sum. Return true if any two numbers in the array add up to the target, otherwise return false.
+class Book {
+  title: string;
+  author: string;
+  isbn: string;
 
-// hasPairWithSum([1, 2, 3, 9], 8);   // false
-// hasPairWithSum([1, 2, 4, 4], 8);   // true
-
-// Time: O(n) → one pass, each set.has and set.add is O(1).
-// Space: O(n) → in the worst case we store every element in the set.
-const hasPairWithSum = (arr: number[], target: number): boolean => {
-  const set = new Set<number>();
-
-  for (const num of arr) {
-    let remainder = target - num;
-    if (set.has(remainder)) {
-      return true;
-    } else {
-      set.add(num);
-    }
+  constructor(title: string, author: string, isbn: string) {
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn;
   }
-  return false;
-};
 
-console.log(hasPairWithSum([1, 2, 3, 5], 9));
+  books = new Map<string, Book>();
+
+  createBook = (title: string, author: string, isbn: string) => {
+    const existingBook = this.books.has(isbn);
+    if (existingBook) {
+      return this.books.get(isbn);
+    }
+    const book = new Book(title, author, isbn);
+    this.books.set(isbn, book);
+    return book;
+  };
+
+  bookList: Array<{
+    title: string;
+    author: string;
+    isbn: string;
+    sales: number;
+    availability: number;
+  }> = [];
+
+  addBook = (
+    title: string,
+    author: string,
+    isbn: string,
+    sales: number,
+    availability: number
+  ) => {
+    const book = {
+      ...this.createBook(title, author, isbn),
+      sales,
+      availability,
+      isbn,
+    };
+
+    this.bookList.push(book);
+    return book;
+  };
+}
