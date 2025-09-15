@@ -1,49 +1,25 @@
-class Book {
-  title: string;
-  author: string;
-  isbn: string;
+// Write a function that takes an array of numbers and an integer k, and returns the maximum sum of any contiguous subarray of length k.
 
-  constructor(title: string, author: string, isbn: string) {
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn;
+// maxSubarraySum([2, 1, 5, 1, 3, 2], 3); // 9 (5+1+3)
+// maxSubarraySum([1, 9, -1, -2, 7, 3, -1, 2], 4); // 13 (9-1-2+7)
+
+const slidingWindow = (arr: number[], k: number): number | null => {
+  if (arr.length < k) return null;
+
+  let windowSum = 0;
+
+  for (let i = 0; i < k; i++) {
+    windowSum += arr[i];
   }
 
-  books = new Map<string, Book>();
+  let maxSum = windowSum;
 
-  createBook = (title: string, author: string, isbn: string) => {
-    const existingBook = this.books.has(isbn);
-    if (existingBook) {
-      return this.books.get(isbn);
-    }
-    const book = new Book(title, author, isbn);
-    this.books.set(isbn, book);
-    return book;
-  };
+  for (let i = k; i < arr.length; i++) {
+    windowSum = windowSum - arr[i - k] + arr[i];
+    maxSum = Math.max(maxSum, windowSum);
+  }
 
-  bookList: Array<{
-    title: string;
-    author: string;
-    isbn: string;
-    sales: number;
-    availability: number;
-  }> = [];
+  return maxSum;
+};
 
-  addBook = (
-    title: string,
-    author: string,
-    isbn: string,
-    sales: number,
-    availability: number
-  ) => {
-    const book = {
-      ...this.createBook(title, author, isbn),
-      sales,
-      availability,
-      isbn,
-    };
-
-    this.bookList.push(book);
-    return book;
-  };
-}
+console.log(slidingWindow([2, 1, 5, 1, 3, 2], 3));

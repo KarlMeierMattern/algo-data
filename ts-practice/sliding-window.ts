@@ -6,29 +6,26 @@ const k = 3;
 // 9 // → because 5 + 1 + 3 = 9 is the highest sum of 3 consecutive numbers
 
 // solutions 1
-const optimisedSlidingWindow = (array: number[], k: number): number => {
-  if (array.length < k) return 0;
+const slidingWindow = (arr: number[], k: number): number | null => {
+  if (arr.length < k) return null;
 
-  let max = 0;
-  let current = 0;
+  let windowSum = 0;
 
-  // Initial window
   for (let i = 0; i < k; i++) {
-    current += array[i];
+    windowSum += arr[i];
   }
 
-  max = current;
+  let maxSum = windowSum;
 
-  // Slide the window
-  for (let i = k; i < array.length; i++) {
-    current = current - array[i - k] + array[i];
-    max = Math.max(max, current);
+  for (let i = k; i < arr.length; i++) {
+    windowSum = windowSum - arr[i - k] + arr[i];
+    maxSum = Math.max(maxSum, windowSum);
   }
 
-  return max;
+  return maxSum;
 };
 
-console.log(optimisedSlidingWindow(nums, k));
+console.log(slidingWindow([2, 1, 5, 1, 3, 2], 3));
 
 // solution 2
 const slidingWindow = (array: Array<number>, k: number): number => {
