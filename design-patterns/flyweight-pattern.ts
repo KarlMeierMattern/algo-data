@@ -41,7 +41,7 @@ const addBook = (
   availability: boolean
 ) => {
   const book = {
-    ...createBook(title, author, isbn)!,
+    ...createBook(title, author, isbn)!, // Flattens the returned Book instance’s own properties (title, author, isbn) into a new plain object
     sales,
     availability,
     isbn,
