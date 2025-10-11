@@ -30,4 +30,4 @@ const hasPairWithSum = (arr: number[], target: number): boolean => {
   return false;
 };
 
-console.log(hasPairWithSum([1, 2, 3, 5], 9));
+console.log(hasPairWithSum([1, 4, 3, 5], 9));
