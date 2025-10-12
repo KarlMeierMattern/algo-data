@@ -1,32 +1,28 @@
-const threeSum = (nums) => {
-  if (nums.length < 3) return [];
-  const sortedNums = nums.sort((a, b) => a - b);
-  const arrThree = [];
-  const target = 0;
+// You are given an array of non-negative integers height,
+// where each element represents the height of a vertical line drawn on the x-axis.
+// Find two lines that together with the x-axis form a container that holds the most water.
 
-  for (let i = 0; i < sortedNums.length - 2; i++) {
-    if (i > 0 && sortedNums[i] === sortedNums[i - 1]) continue;
-    let left = i + 1;
-    let right = sortedNums.length - 1;
+// maxArea([1,8,6,2,5,4,8,3,7]); // 49
 
-    while (left < right) {
-      let sum = sortedNums[i] + sortedNums[left] + sortedNums[right];
-      let remainder = target - sum;
+const maxArea = (height) => {
+  let left = 0;
+  let right = height.length - 1;
+  let leftMax = 0;
+  let rightMax = 0;
+  let maxArea = 0;
 
-      if (remainder > 0) {
-        left++;
-      } else if (remainder < 0) {
-        right--;
-      } else {
-        arrThree.push([sortedNums[left], sortedNums[right], sortedNums[i]]);
-        left++;
-        right--;
-        while (sortedNums[left] === sortedNums[left - 1]) left++;
-        while (sortedNums[right] === sortedNums[right + 1]) right--;
-      }
+  while (left < right) {
+    leftMax = Math.max(leftMax, height[left]);
+    rightMax = Math.max(rightMax, height[right]);
+    if (leftMax < rightMax) {
+      maxArea += leftMax - height[left];
+      left++;
+    } else {
+      maxArea += rightMax - height[right];
+      right--;
     }
   }
-  return arrThree;
+  return maxArea;
 };
 
-console.log(threeSum([-5, 4, 1, 0, 3, 2, -3]));
+console.log(maxArea([1, 8, 2, 6, 3, 7]));
