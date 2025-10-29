@@ -1,5 +1,6 @@
 // With the observer pattern, we can subscribe certain objects, the observers, to another object, called the observable.
 // Whenever an event occurs, the observable notifies all its observers.
+// Also known as pub/sub pattern
 
 class Observable {
   public observers: Function[]; // an array of observers that will get notified whenever a specific event occurs
