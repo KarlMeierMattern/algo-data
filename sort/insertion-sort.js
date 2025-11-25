@@ -13,5 +13,5 @@ const insertionSort = (array) => {
 };
 
 const array = [6, 4, 9, 7, 3, 6];
-const sortedArray = insertionSort(array); // Call the function and store the result
-console.log(sortedArray); // Log the sorted array to the terminal
+const sortedArray = insertionSort(array);
+console.log(sortedArray);
