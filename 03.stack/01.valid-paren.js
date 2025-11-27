@@ -46,7 +46,7 @@ const isValid = (s) => {
     }
   }
 
-  return stack.length === 0;
+  return stack.length === 0; // if the stack is empty every openign bracket had an equal and opposite closing bracket
 };
 
 console.log(isValid("({})"));
