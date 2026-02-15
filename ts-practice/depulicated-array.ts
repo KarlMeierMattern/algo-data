@@ -10,12 +10,14 @@ const response = {
   },
 };
 
-function getTagsTest({ response }: { response: any }): Array<string> {
+const getTagsTest = (response: any): Array<string> => {
   const tags = response.data.items.map((item: any) => item.tags).flat();
   return tags
     .filter((tag: any, index: any, array: any) => array.indexOf(tag) === index) // finds the first occurrence of this tag and checks if current position is the first occurrence
     .sort();
-}
+};
+
+console.log(getTagsTest(response));
 
 const getTags = (response: any): Array<string> => {
   const tags = response.data.items.map((item: any) => item.tags);
@@ -28,6 +30,6 @@ const getTags = (response: any): Array<string> => {
 
 const numbers = [1, 2, 3, 2, 4];
 const filteredNumbers = numbers.filter(
-  (item, index, array) => array.indexOf(item) === index
+  (item, index, array) => array.indexOf(item) === index,
 );
 // console.log(filteredNumbers);
